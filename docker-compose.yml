@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/backend
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: toor
+    volumes:
+      - dbdata6:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis.conf
+    command: [redis-server, /usr/local/etc/redis.conf]
+
+
+  celery_worker:
+    container_name: celery_worker
+    build: .
+    command: celery -A celery_worker.celery worker --loglevel=info
+    volumes:
+      - .:/backend
+    environment:
+      - PROJECT_NAME=${PROJECT_NAME}
+      - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+      - BACKEND_CORS_ORIGINS=${BACKEND_CORS_ORIGINS}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
+    depends_on:
+      - backend
+      - redis
+
+  celery_beat:
+    container_name: celery_beat
+    build: .
+    command: celery -A celery_worker beat --loglevel=info
+    volumes:
+      - .:/backend
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
+      - PROJECT_NAME=${PROJECT_NAME}
+      - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+      - C_FORCE_ROOT=true
+    depends_on:
+      - redis
+
+
+volumes:
+  dbdata6:

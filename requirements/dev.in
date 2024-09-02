@@ -1,0 +1,4 @@
+pytest-asyncio
+pytest-dotenv
+freezegun==0.3.4
+pytest

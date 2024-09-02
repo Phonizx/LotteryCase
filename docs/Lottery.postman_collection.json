@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "e5833436-28d7-4555-8e6b-6faba623e651",
+		"name": "Lottery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32275530"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create Partecipants",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"yolo\",\n  \"email\": \"gio@lottery.com\",\n  \"phone\": \"+31 6 11122333\",\n  \"city\": \"Bari\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/partecipants",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"partecipants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"yolo\",\n  \"email\": \"gio@lottery.com\",\n  \"phone\": \"+31 6 11122333\",\n  \"city\": \"Bari\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/partecipants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"partecipants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 14:07:25 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "42"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"inserted_id\": \"66a10a9d788b88995e50610b\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Partecipant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/partecipants/66a0d810cdd380f155ba194b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"partecipants",
+								"66a0d810cdd380f155ba194b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/partecipants/66a105eeaa41c1f8dae13fbd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"partecipants",
+										"66a105eeaa41c1f8dae13fbd"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 17:00:11 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "201"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"giovanni\",\n    \"email\": \"gio@lottery.com\",\n    \"phone\": \"+31 6 11122333\",\n    \"city\": \"Bari\",\n    \"role\": \"partecipant\",\n    \"lottery_wins\": [],\n    \"created\": \"2024-07-24T13:47:22.523956\",\n    \"updated\": \"2024-07-24T13:47:22.523964\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Partecipant",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"gio pescione\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/partecipants/66a0d810cdd380f155ba194b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"partecipants",
+								"66a0d810cdd380f155ba194b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"gio ricchi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/partecipants/66a10a9d788b88995e50610b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"partecipants",
+										"66a10a9d788b88995e50610b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 14:07:46 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "203"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"gio ricchi\",\n    \"email\": \"gio@lottery.com\",\n    \"phone\": \"+31 6 11122333\",\n    \"city\": \"Bari\",\n    \"role\": \"partecipant\",\n    \"lottery_wins\": [],\n    \"created\": \"2024-07-24T14:07:02.478988\",\n    \"updated\": \"2024-07-24T14:07:02.478996\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Partecipant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"gio pescione\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/partecipants/66a0d810cdd380f155ba194b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"partecipants",
+								"66a0d810cdd380f155ba194b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Partecipant Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"gio pescione\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/partecipants/66a10a9d788b88995e50610b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"partecipants",
+										"66a10a9d788b88995e50610b"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 14:07:57 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ballot",
+			"item": [
+				{
+					"name": "ballot issuing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "lottery-x-token",
+								"value": "66a105eeaa41c1f8dae13fbd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numbers\": [1,2,3,4,5,6]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/ballots",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"ballots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ballot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/ballots/66a10bc58588b0d9ab95c93d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"ballots",
+								"66a10bc58588b0d9ab95c93d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/ballots/66a10bc58588b0d9ab95c93d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"ballots",
+										"66a10bc58588b0d9ab95c93d"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 14:13:06 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numbers\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ],\n    \"user_id\": \"66a105eeaa41c1f8dae13fbd\",\n    \"issued\": \"2024-07-24T14:12:13.385913\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Lottery",
+			"item": [
+				{
+					"name": "Find Lottery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/lottery/find?date_input=2024-07-24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"lottery",
+								"find"
+							],
+							"query": [
+								{
+									"key": "date_input",
+									"value": "2024-07-24"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/lottery/find?date_input=2024-07-24",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"lottery",
+										"find"
+									],
+									"query": [
+										{
+											"key": "date_input",
+											"value": "2024-07-24"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Wed, 24 Jul 2024 16:53:26 GMT"
+								},
+								{
+									"key": "server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "content-length",
+									"value": "113"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numbers\": [\n        1,\n        2,\n        3,\n        4,\n        5\n    ],\n    \"lottery_date\": \"2024-07-24\",\n    \"has_any_winner\": false,\n    \"lottery_prizes\": [],\n    \"winner_city\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "[Admin] Start Lottery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/lottery/issue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"lottery",
+								"issue"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
